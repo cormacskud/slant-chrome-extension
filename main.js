@@ -111,7 +111,7 @@ button.addEventListener('click', event => {
 });
 
 const input = document.getElementById("keywords")
-// document.addEventListener('keypress', searchKey);
+document.addEventListener('keypress', searchKey);
 
 function searchKey(e) {
   if (e.key == 'Enter') {
