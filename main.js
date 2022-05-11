@@ -41,9 +41,14 @@ const lookup = (query) => {
   console.log('lookup: '+query);
   // an attempt to remove the source info from the title
 
-  const colonIndex = query.indexOf(':');
-  if (colonIndex > 0) {
-    query = query.substring(0, colonIndex);
+  const colonSepIndex = query.indexOf(':');
+  if (colonSepIndex > 0) {
+    query = query.substring(0, colonSepIndex);
+  }
+
+  const dashSepIndex = query.indexOf(' - ');
+  if (dashSepIndex > 0) {
+    query = query.substring(0, dashSepIndex);
   }
 
   console.log('after substring '+query);
@@ -70,10 +75,16 @@ const lookup = (query) => {
     "breitbart-news,fox-news,the-american-conservative"
   ];
 
+  // outlook
+  const apiKey = '216de427252648be89c5ac8116483b05';
+
+  // gmail
+  // const apiKey = '7afaa4e3798c4722beef7494b73d6547';
+
   Promise.all([
-    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[0]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=7afaa4e3798c4722beef7494b73d6547`),
-    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[1]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=7afaa4e3798c4722beef7494b73d6547`),
-    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[2]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=7afaa4e3798c4722beef7494b73d6547`),
+    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[0]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=${apiKey}`),
+    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[1]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=${apiKey}`),
+    fetch(`https://newsapi.org/v2/everything?q=${query}&sources=${sourceIndex[2]}&sortBy=relevancy&from=${qDate}&sortBy=publishedAt&apiKey=${apiKey}`),
   ]).then(function (responses) {
     return Promise.all(responses.map(function (response) {
       return response.json();
