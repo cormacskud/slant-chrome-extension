@@ -40,10 +40,13 @@ const formatArticle = (article) => {
 const lookup = (query) => {
   console.log('lookup: '+query);
   // an attempt to remove the source info from the title
-  // query = query.slice(0, query.indexOf(':'));
-  // console.log('slice1: '+query);
-  // query = query.slice(0, query.indexOf(' - '));
-  // console.log('slice2: '+query);
+
+  const colonIndex = query.indexOf(':');
+  if (colonIndex > 0) {
+    query = query.substring(0, colonIndex);
+  }
+
+  console.log('after substring '+query);
   query = query.trimEnd();
   console.log('trimend: '+query);
   query = extract(query, {
@@ -97,7 +100,7 @@ button.addEventListener('click', event => {
 });
 
 const input = document.getElementById("keywords")
-document.addEventListener('keypress', searchKey);
+// document.addEventListener('keypress', searchKey);
 
 function searchKey(e) {
   if (e.key == 'Enter') {
