@@ -4,43 +4,23 @@
   <title>Slant</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-  </style>
+  <link rel="icon" type="image/x-icon" href="img/slant-favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 <script type="module" src="main.js"></script>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">SLANT</a>
-    </div>
-  </div>
+<nav class="branding">
+  <img src="img/slant-logo.png" width="125">
 </nav>
 
   
 <div class="container-fluid bg-3 text-center">    
   <h3>What's the SLANT?</h3><br>
   <div class="row" style="margin-bottom: 20px;">
-    <div class="col-sm-12">
-        <input id="keywords" type="text" style="width:368px">&nbsp;<button id="search">Search</button>
+    <div class="col-sm-12" style="align-items: center;justify-content: center;display: flex;">
+        <input id="keywords" type="text" style="width:368px;height:2.5rem;padding:0.5rem;border-radius:0.4rem;margin-right:0.5rem;border:1px solid #000"><button id="search" class="btn btn-warning">Refine Results</button>
     </div>
   </div>
   <div class="row">

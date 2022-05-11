@@ -15,5 +15,8 @@
     ],
     "action": {
         "default_title": "What's the SLANT?"
-    }
+    },
+    "icons": { "16": "slant-icon-16.png",
+        "48": "slant-icon-48.png",
+       "128": "slant-icon-128.png"}
   }
